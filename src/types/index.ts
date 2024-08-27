@@ -7,3 +7,10 @@ export interface ITodo {
 export interface IInitialState {
   todos: ITodo[];
 }
+
+export interface IProps {
+  children?: React.ReactNode;
+  theme: string;
+}
+
+export type TThemeContext = [string, any];

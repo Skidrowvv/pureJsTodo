@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-customSilver dark:bg-customDark;
+  }
+}
+
 @layer components {
   .container {
     @apply mobile:max-w-[768px] desktop:max-w-[1200px];

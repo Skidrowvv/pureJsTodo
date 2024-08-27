@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
 import { GoPlus } from "react-icons/go";
 import { addTodo } from "../redux/todoSlice";
+import { useAppDispatch } from "../hooks";
 
 const TodoHeader = () => {
   const [inputData, setInputData] = useState<string>(""),
-    dispatch = useDispatch();
+    dispatch = useAppDispatch();
 
   return (
     <div className="flex items-center gap-3 mb-7">
@@ -17,7 +17,7 @@ const TodoHeader = () => {
         value={inputData}
         placeholder="Создать задачу..."
         type="text"
-        className="rounded py-2 px-4  w-full bg-transparent dark:text-white border border-customGray focus:outline-none dark:placeholder:text-white"
+        className="py-2 px-4  w-full bg-transparent rounded duration-300 dark:text-white border border-customGray focus:outline-none dark:placeholder:text-white"
       />
 
       <button

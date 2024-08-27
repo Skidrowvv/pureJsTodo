@@ -1,20 +1,23 @@
-import { useDispatch } from "react-redux";
-import { removeTodo, setCompleted } from "../redux/todoSlice";
-import { FaTrash } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
+import { FaTrash } from "react-icons/fa";
 
-const TodoItem = (todoData: any) => {
+import { removeTodo, setCompleted } from "../redux/todoSlice";
+
+import { ITodo } from "../types";
+import { useAppDispatch } from "../hooks";
+
+const TodoItem = (todoData: { data: ITodo; todoId: number }) => {
   const { id, text, completed } = todoData.data,
-    dispatch = useDispatch();
+    dispatch = useAppDispatch();
 
   return (
     <li
-      className={`flex justify-between items-center bg-[#36373A] border  ${
-        completed ? "border-emerald-500" : "border-[#36373A]"
-      } rounded-md px-4 py-1`}
+      className={`px-4 py-2 flex justify-between items-center shadow-sm bg-white dark:bg-customTodoBg  border-[3px] rounded-md duration-300 ${
+        completed ? "border-customGreen" : "border-transparent"
+      }`}
     >
-      <div className="flex items-center gap-2 text-white">
-        <span>{todoData.todoId}</span>
+      <div className="flex items-center gap-2 dark:text-white">
+        <span>{todoData.todoId})</span>
 
         {text}
       </div>
@@ -27,14 +30,14 @@ const TodoItem = (todoData: any) => {
           <FaTrash />
         </button>
         <button
-          className="p-2 text-xl bg-emerald-600 text-white rounded focus:outline-none"
+          className="p-2 text-xl bg-customGreen text-white rounded focus:outline-none"
           onClick={() =>
             dispatch(
               setCompleted({ id: todoData.data.id, completed: todoData.data.completed })
             )
           }
         >
-          <IoMdCheckmark/> 
+          <IoMdCheckmark />
         </button>
       </div>
     </li>

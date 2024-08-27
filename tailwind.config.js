@@ -4,16 +4,14 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
         customRed: "#EE3333",
+        customGreen: "#34A853",
         customBlue: "#005bff",
         customGray: "#61686D",
-        customDark:'#313237'
+        customDark: "#313237",
+        customSilver: "#E8EAEE",
+        customTodoBg: "#36373A",
       },
     },
     container: {
