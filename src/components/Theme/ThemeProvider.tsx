@@ -5,7 +5,7 @@ import { IProps, TThemeContext } from "../../types";
 export const ThemeContext = createContext<TThemeContext>(["light", () => {}]);
 
 const ThemeProvider = (props: IProps) => {
-  const [theme, setTheme] = useState(props.theme);
+  const [theme, setTheme] = useState(props.theme === "null" ? "light" : props.theme);
 
   localStorage.setItem("theme", theme);
   document.documentElement.classList.add(`${localStorage.getItem("theme")}`);
